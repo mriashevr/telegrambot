@@ -10,3 +10,5 @@ def fromHandlerToFunction(update, context):
 def textProceed(message, update):
     get_question(message, update)
     get_information_about_video(message, update)
+    get_information_about_recommendation(message, update)
+    get_information_about_medical_test(message, update)
