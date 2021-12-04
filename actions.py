@@ -18,12 +18,6 @@ def get_question(message, update):
         update.message.reply_text(msg['SecondStepApplication'])
 
 
-def get_question(audio_link, update):
-    if any(word in audio_message(audio_link).split() for word in words_check_application):
-        update.message.reply_text(msg['StartApplication'])
-        update.message.reply_text(msg['FirstStepApplication'])
-        update.message.reply_text(msg['SecondStepApplication'])
-
 def get_information_about_video(message, update):
     if any(word in message.split() for word in words_check_video):
         update.message.reply_text(msg['InformationVideo'])
