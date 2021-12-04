@@ -17,20 +17,18 @@ def start(update, context):
 
 def get_question(update, context):
     answer = update.message.text
-    if any(word in answer.lower() for word in words_check_application):
-        update.message.reply_text(message.msg['StartApplication'])
-        update.message.reply_text(message.msg['FirstStepApplication'])
-        update.message.reply_text(message.msg['SecondStepApplication'])
+    update.message.reply_text(message.msg['StartApplication'])
+    update.message.reply_text(message.msg['FirstStepApplication'])
+    update.message.reply_text(message.msg['SecondStepApplication'])
 
 def get_information_about_video(update, context):
     answer = update.message.text
-    if any(word in answer.lower() for word in words_check_video):
-        update.message.reply_text(message.msg['InformationVideo'])
+    update.message.reply_text(message.msg['InformationVideo'])
 
 
 if __name__ == "__main__":
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text, get_question))
-    dp.add_handler(MessageHandler(Filters.text, get_information_about_video))
+    dp.add_handler(MessageHandler(Filters.regex(r'(заявк[а-я])') | Filters.regex(r'(анкет[а-я])'), get_question))
+    dp.add_handler(MessageHandler(Filters.regex(r'(виде[а-я])'), get_information_about_video))
     updater.start_polling()
