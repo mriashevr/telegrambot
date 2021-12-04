@@ -1,6 +1,5 @@
-import os
-
 import telegram
+import os
 import random
 import message
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, ConversationHandler, updater

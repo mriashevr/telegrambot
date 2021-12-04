@@ -1,4 +1,5 @@
 from message import *
+from AudioRecognition import *
 
 words_check_application = ["заявку", "заявка", "заявки", "анкета", "анкеты", "анкету", "тест", "тесты", "теста", "обучение", "обучения", "форма", "форму", "волонтер", "волонтером", "волонтеры", "волонтерство"]
 words_check_video = ["видео"]
@@ -16,6 +17,12 @@ def get_question(message, update):
         update.message.reply_text(msg['FirstStepApplication'])
         update.message.reply_text(msg['SecondStepApplication'])
 
+
+def get_question(audio_link, update):
+    if any(word in audio_message(audio_link).split() for word in words_check_application):
+        update.message.reply_text(msg['StartApplication'])
+        update.message.reply_text(msg['FirstStepApplication'])
+        update.message.reply_text(msg['SecondStepApplication'])
 
 def get_information_about_video(message, update):
     if any(word in message.split() for word in words_check_video):
