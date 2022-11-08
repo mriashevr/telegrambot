@@ -19,6 +19,7 @@ CALLBACK_BUTTON6_PRICE = "callback_button6_price"
 CALLBACK_BUTTON7_PRICE = "callback_button7_price"
 CALLBACK_BUTTON8_PRICE = "callback_button8_price"
 CALLBACK_BUTTON_HIDE_KEYBOARD = "callback_button9_hide"
+CALLBACK_BUTTON10_INFO = "callback_button10_info"
 
 
 TITLES = {
@@ -30,7 +31,8 @@ TITLES = {
     CALLBACK_BUTTON6_PRICE: "BTC 💰",
     CALLBACK_BUTTON7_PRICE: "LTC 💰",
     CALLBACK_BUTTON8_PRICE: "ETH 💰",
-    CALLBACK_BUTTON_HIDE_KEYBOARD: "Спрять клавиатуру",
+    CALLBACK_BUTTON_HIDE_KEYBOARD: "Спрятать клавиатуру",
+    CALLBACK_BUTTON10_INFO: "Help"
 }
 
 # Глобально инициализируем клиент API Bittrex
@@ -54,6 +56,7 @@ def get_base_inline_keyboard():
         ],
         [
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON3_MORE], callback_data=CALLBACK_BUTTON3_MORE),
+            InlineKeyboardButton(TITLES[CALLBACK_BUTTON10_INFO], callback_data=CALLBACK_BUTTON10_INFO),
         ],
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -151,7 +154,7 @@ def keyboard_callback_handler(update: Update, context: CallbackContext):
         )
     elif data == CALLBACK_BUTTON_HIDE_KEYBOARD:
         # Спрятать клавиатуру
-        # Работает только при отправке нового сообщение
+        # Работает только при отправке нового сообщения
         # Можно было бы отредактировать, но тогда нужно точно знать что у сообщения не было кнопок
         context.bot.send_message(
             chat_id=chat_id,
@@ -173,7 +176,7 @@ def do_help(update: Update, context: CallbackContext):
     update.message.reply_text(
         text="Это учебный бот\n\n"
              "Список доступных команд есть в меню\n\n"
-             "Так же я отвечую на любое сообщение",
+             "Так же я отвечу на любое сообщение",
         reply_markup=get_base_inline_keyboard(),
     )
 
