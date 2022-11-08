@@ -50,13 +50,13 @@ def get_base_inline_keyboard():
         [
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON1_LEFT], callback_data=CALLBACK_BUTTON1_LEFT),
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON2_RIGHT], callback_data=CALLBACK_BUTTON2_RIGHT),
+            InlineKeyboardButton(TITLES[CALLBACK_BUTTON10_INFO], callback_data=CALLBACK_BUTTON10_INFO),
         ],
         [
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON_HIDE_KEYBOARD], callback_data=CALLBACK_BUTTON_HIDE_KEYBOARD),
         ],
         [
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON3_MORE], callback_data=CALLBACK_BUTTON3_MORE),
-            InlineKeyboardButton(TITLES[CALLBACK_BUTTON10_INFO], callback_data=CALLBACK_BUTTON10_INFO),
         ],
     ]
     return InlineKeyboardMarkup(keyboard)
