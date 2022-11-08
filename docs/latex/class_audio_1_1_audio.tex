@@ -1,0 +1,117 @@
+\hypertarget{class_audio_1_1_audio}{}\doxysection{Audio.\+Audio Class Reference}
+\label{class_audio_1_1_audio}\index{Audio.Audio@{Audio.Audio}}
+Inheritance diagram for Audio.\+Audio\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_audio_1_1_audio}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a848e22537ee0d2c1601d6e99f6d13091}\label{class_audio_1_1_audio_a848e22537ee0d2c1601d6e99f6d13091}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, str file\+\_\+id, str file\+\_\+unique\+\_\+id, int duration, str performer=None, str title=None, str mime\+\_\+type=None, int file\+\_\+size=None, Photo\+Size thumb=None, \textquotesingle{}Bot\textquotesingle{} bot=None, str file\+\_\+name=None, $\ast$$\ast$Any \+\_\+kwargs)
+\item 
+Optional\mbox{[} \textquotesingle{}\mbox{\hyperlink{class_audio_1_1_audio}{Audio}}\textquotesingle{}\mbox{]} \mbox{\hyperlink{class_audio_1_1_audio_a90d5c423c6b4ef761e756250df810cc6}{de\+\_\+json}} (cls, Optional\mbox{[}JSONDict\mbox{]} data, \textquotesingle{}Bot\textquotesingle{} bot)
+\item 
+ \textquotesingle{}File\textquotesingle{} \mbox{\hyperlink{class_audio_1_1_audio_aeec5d80796b14ba9b5ce42dd957bcb27}{get\+\_\+file}} (self, ODVInput\mbox{[}float\mbox{]} timeout=DEFAULT\+\_\+\+NONE, JSONDict api\+\_\+kwargs=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_ad1d87371e5764f3080216ad96bc33d39}\label{class_audio_1_1_audio_ad1d87371e5764f3080216ad96bc33d39}} 
+{\bfseries file\+\_\+id}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_abd9f2e49ff419750e3fde0226f0de092}\label{class_audio_1_1_audio_abd9f2e49ff419750e3fde0226f0de092}} 
+{\bfseries file\+\_\+unique\+\_\+id}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a5c5b754b04595a18674ac01de3eead42}\label{class_audio_1_1_audio_a5c5b754b04595a18674ac01de3eead42}} 
+{\bfseries duration}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_ac81449aed3329a0afa6a9331ad24bd04}\label{class_audio_1_1_audio_ac81449aed3329a0afa6a9331ad24bd04}} 
+{\bfseries performer}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a126109c2a4dcc911b75d631d8323912f}\label{class_audio_1_1_audio_a126109c2a4dcc911b75d631d8323912f}} 
+{\bfseries title}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a459b408c33a69c7a30d91034c4a9b877}\label{class_audio_1_1_audio_a459b408c33a69c7a30d91034c4a9b877}} 
+{\bfseries file\+\_\+name}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a50127d3ae3aa54265e3ae619b4f5c990}\label{class_audio_1_1_audio_a50127d3ae3aa54265e3ae619b4f5c990}} 
+{\bfseries mime\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a6f9f43f0329cc4b0dcdc03ef3f39812a}\label{class_audio_1_1_audio_a6f9f43f0329cc4b0dcdc03ef3f39812a}} 
+{\bfseries file\+\_\+size}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_a43703e5fdc1fda4925aa3da023135354}\label{class_audio_1_1_audio_a43703e5fdc1fda4925aa3da023135354}} 
+{\bfseries thumb}
+\item 
+\mbox{\Hypertarget{class_audio_1_1_audio_ab8d668536796c7acca83622e248b71fe}\label{class_audio_1_1_audio_ab8d668536796c7acca83622e248b71fe}} 
+{\bfseries bot}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This object represents an audio file to be treated as music by the Telegram clients.
+Objects of this class are comparable in terms of equality. Two objects of this class are
+considered equal, if their :attr:`file_unique_id` is equal.
+Args:
+    file_id (:obj:`str`): Identifier for this file, which can be used to download
+        or reuse the file.
+    file_unique_id (:obj:`str`): Unique identifier for this file, which is supposed to be
+        the same over time and for different bots. Can't be used to download or reuse the file.
+    duration (:obj:`int`): Duration of the audio in seconds as defined by sender.
+    performer (:obj:`str`, optional): Performer of the audio as defined by sender or by audio
+        tags.
+    title (:obj:`str`, optional): Title of the audio as defined by sender or by audio tags.
+    file_name (:obj:`str`, optional): Original filename as defined by sender.
+    mime_type (:obj:`str`, optional): MIME type of the file as defined by sender.
+    file_size (:obj:`int`, optional): File size.
+    thumb (:class:`telegram.PhotoSize`, optional): Thumbnail of the album cover to
+        which the music file belongs.
+    bot (:class:`telegram.Bot`, optional): The Bot to use for instance methods.
+    **kwargs (:obj:`dict`): Arbitrary keyword arguments.
+Attributes:
+    file_id (:obj:`str`): Identifier for this file.
+    file_unique_id (:obj:`str`): Unique identifier for this file, which
+        is supposed to be the same over time and for different bots.
+        Can't be used to download or reuse the file.
+    duration (:obj:`int`): Duration of the audio in seconds.
+    performer (:obj:`str`): Optional. Performer of the audio as defined by sender or by audio
+        tags.
+    title (:obj:`str`): Optional. Title of the audio as defined by sender or by audio tags.
+    file_name (:obj:`str`): Optional. Original filename as defined by sender.
+    mime_type (:obj:`str`): Optional. MIME type of the file as defined by sender.
+    file_size (:obj:`int`): Optional. File size.
+    thumb (:class:`telegram.PhotoSize`): Optional. Thumbnail of the album cover to
+        which the music file belongs.
+    bot (:class:`telegram.Bot`): Optional. The Bot to use for instance methods.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_1_1_audio_a90d5c423c6b4ef761e756250df810cc6}\label{class_audio_1_1_audio_a90d5c423c6b4ef761e756250df810cc6}} 
+\index{Audio.Audio@{Audio.Audio}!de\_json@{de\_json}}
+\index{de\_json@{de\_json}!Audio.Audio@{Audio.Audio}}
+\doxysubsubsection{\texorpdfstring{de\_json()}{de\_json()}}
+{\footnotesize\ttfamily  Optional\mbox{[}\textquotesingle{}\mbox{\hyperlink{class_audio_1_1_audio}{Audio}}\textquotesingle{}\mbox{]} Audio.\+Audio.\+de\+\_\+json (\begin{DoxyParamCaption}\item[{}]{cls,  }\item[{Optional\mbox{[}JSONDict\mbox{]}}]{data,  }\item[{\textquotesingle{}Bot\textquotesingle{}}]{bot }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}See :meth:`telegram.TelegramObject.de_json`.\end{DoxyVerb}
+ \mbox{\Hypertarget{class_audio_1_1_audio_aeec5d80796b14ba9b5ce42dd957bcb27}\label{class_audio_1_1_audio_aeec5d80796b14ba9b5ce42dd957bcb27}} 
+\index{Audio.Audio@{Audio.Audio}!get\_file@{get\_file}}
+\index{get\_file@{get\_file}!Audio.Audio@{Audio.Audio}}
+\doxysubsubsection{\texorpdfstring{get\_file()}{get\_file()}}
+{\footnotesize\ttfamily  \textquotesingle{}File\textquotesingle{} Audio.\+Audio.\+get\+\_\+file (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{ODVInput\mbox{[}float\mbox{]} }]{timeout = {\ttfamily DEFAULT\+\_\+NONE},  }\item[{JSONDict }]{api\+\_\+kwargs = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Convenience wrapper over :attr:`telegram.Bot.get_file`
+For the documentation of the arguments, please see :meth:`telegram.Bot.get_file`.
+Returns:
+    :class:`telegram.File`
+Raises:
+    :class:`telegram.error.TelegramError`
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Audio.\+py\end{DoxyCompactItemize}
