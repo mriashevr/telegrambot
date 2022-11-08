@@ -19,6 +19,7 @@ words_check_departure = ["отлет", "отлёт", "отправка", "как
 words_check_waiting_departure = ["ожидание", "предоставляет", "предоставит", "остановиться", "остановка"]
 words_check_area_work = ["территория", "работа", "работу", "работать", "работы", "выходные"]
 words_check_report = ["отзыв", "отзыв", "отчет", "офис", "возвращение", "возвращении"]
+words_check_kardon = ["кoрдон"]
 
 
 CALLBACK_BUTTON1_LEFT = "callback_button1_left"
@@ -30,6 +31,17 @@ CALLBACK_BUTTON3_RIGHT = "callback_button3_right"
 CALLBACK_BUTTON4_LEFT = "callback_button4_left"
 CALLBACK_BUTTON_HIDE_KEYBOARD = "callback_button9_hide"
 
+CALLBACK_BUTTON1 = "callback_button1"
+CALLBACK_BUTTON2 = "callback_button2"
+CALLBACK_BUTTON3 = "callback_button3"
+CALLBACK_BUTTON4 = "callback_button4"
+CALLBACK_BUTTON5 = "callback_button5"
+CALLBACK_BUTTON6= "callback_button6"
+CALLBACK_BUTTON_HELP1 = "callback_button_help1"
+CALLBACK_BUTTON_HELP2 = "callback_button_help2"
+CALLBACK_BUTTON_HELP3= "callback_button_help3"
+
+
 
 TITLES = {
     CALLBACK_BUTTON1_LEFT: "Мини-отель АМТО",
@@ -40,6 +52,18 @@ TITLES = {
     CALLBACK_BUTTON3_RIGHT: "Forest Hotel",
     CALLBACK_BUTTON4_LEFT: "Аэро Отель",
     CALLBACK_BUTTON_HIDE_KEYBOARD: "Спрячь клавиатуру",
+}
+
+TITLES2 = {
+    CALLBACK_BUTTON1: "Озерный",
+    CALLBACK_BUTTON2: "Травяной",
+    CALLBACK_BUTTON3: "Долина гейзеров",
+    CALLBACK_BUTTON4: "Узон",
+    CALLBACK_BUTTON5: "Исторки и аэродром",
+    CALLBACK_BUTTON6: "Кроноки и семячик",
+    CALLBACK_BUTTON_HELP1: "Инфраструктурный",
+    CALLBACK_BUTTON_HELP2: "Добровольческий",
+    CALLBACK_BUTTON_HELP3: "Назад"
 }
 
 
@@ -133,6 +157,11 @@ def get_information_about_report(message, update, context):
         context.bot.send_sticker(update.message.chat.id, "CAACAgIAAxkBAAEDaklhrCVkUgkR2o8GCBAn0e89S1pEEgACyRUAArMaYEnoQcLjKVyRpSIE")
         update.message.reply_text(msg['InformationReport'])
 
+def get_information_about_kardon(message, update):
+    if any(word in message.split() for word in words_check_kardon):
+        update.message.reply_text(msg['InformationKardon'],
+        reply_markup = get_base_inline_keyboard2())
+
 
 def get_base_inline_keyboard():
     keyboard = [
@@ -151,6 +180,41 @@ def get_base_inline_keyboard():
         [
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON4_LEFT], callback_data=CALLBACK_BUTTON4_LEFT),
             InlineKeyboardButton(TITLES[CALLBACK_BUTTON_HIDE_KEYBOARD], callback_data=CALLBACK_BUTTON_HIDE_KEYBOARD),
+        ],
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+def get_base_inline_keyboard2():
+    keyboard = [
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON1], callback_data=CALLBACK_BUTTON1),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON2], callback_data=CALLBACK_BUTTON2),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON3], callback_data=CALLBACK_BUTTON3),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON4], callback_data=CALLBACK_BUTTON4),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON5], callback_data=CALLBACK_BUTTON5),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON6], callback_data=CALLBACK_BUTTON6),
+        ],
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+def get_base_inline_keyboard2for2():
+    keyboard = [
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON_HELP1], callback_data=CALLBACK_BUTTON_HELP1),
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON_HELP2], callback_data=CALLBACK_BUTTON_HELP2),
+        ],
+        [
+            InlineKeyboardButton(TITLES2[CALLBACK_BUTTON_HELP3], callback_data=CALLBACK_BUTTON_HELP3),
         ],
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -239,3 +303,30 @@ def keyboard_callback_handler(update, context: CallbackContext):
             context.bot.send_message(
                 chat_id=chat_id,
             )
+
+
+def keyboard_callback2_handler(update, context: CallbackContext):
+    query = update.callback_query
+    data = query.data
+    chat_id = update.effective_message.chat_id
+    current_text = update.effective_message.text
+    if data == CALLBACK_BUTTON1:
+        # query.edit_message_text(
+        #     text=current_text,
+        #     parse_mode=ParseMode.MARKDOWN,
+        # )
+        context.bot.send_message(
+            chat_id=chat_id,
+            text=current_text,
+            reply_markup=get_base_inline_keyboard2for2(),
+        )
+    if data == CALLBACK_BUTTON_HELP1:
+        # query.edit_message_text(
+        #     text=current_text,
+        #     parse_mode=ParseMode.MARKDOWN,
+        # )
+        context.bot.send_message(
+            chat_id=chat_id,
+            text=current_text,
+            reply_markup=get_base_inline_keyboard2for2(),
+        )
